@@ -1,6 +1,7 @@
 ---
 - name: Include OS-specific variables.
   include_vars: "{{ ansible_os_family }}.yml"
+  ignore_errors: true
 
 - name: Ensure NTP-related packages are installed.
   package:
