@@ -1,0 +1,4 @@
+---
+ntp_daemon: ntp
+ntp_tzdata_package: zoneinfo
+ntp_driftfile: /var/lib/ntp/drift
