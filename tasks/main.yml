@@ -5,7 +5,7 @@
 
 - name: Ensure NTP-related packages are installed.
   package:
-    name: ntp
+    name: "{{ ntp_ntp_package }}"
     state: present
 
 - name: Ensure tzdata package is installed (Linux).
