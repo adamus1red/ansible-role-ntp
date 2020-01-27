@@ -27,14 +27,15 @@
     name: "{{ ntp_daemon }}"
     state: started
     enabled: true
-  when: ntp_enabled | bool
+  when: ntp_enabled | bool and ansible_system != "SunOS"
+  
 
 - name: Ensure NTP is stopped and disabled as configured.
   service:
     name: "{{ ntp_daemon }}"
     state: stopped
     enabled: false
-  when: not (ntp_enabled | bool)
+  when: not (ntp_enabled | bool) and ansible_system != "SunOS"
 
 - name: Generate ntp.conf file
   template:
