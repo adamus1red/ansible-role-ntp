@@ -1,4 +1,4 @@
 ---
-ntp_daemon: pkg:/service/network/ntpsec
+ntp_daemon: ntp
 ntp_tzdata_package: pkg:/system/data/zoneinfo
 ntp_driftfile: /var/lib/ntp/drift
