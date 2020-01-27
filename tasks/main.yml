@@ -20,7 +20,7 @@
 - name: Set timezone
   timezone:
     name: "{{ ntp_timezone }}"
-  when: ansible_system == "Linux" or ansible_system == "BSD" # get not implimented on Solaris platforms
+  when: ansible_system != "SunOS" # get not implimented on Solaris platforms
 
 - name: Ensure NTP is running and enabled as configured.
   service:
