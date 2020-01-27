@@ -2,3 +2,4 @@
 ntp_daemon: ntp
 ntp_tzdata_package: pkg:/system/data/zoneinfo
 ntp_driftfile: /var/lib/ntp/drift
+ntp_conf_file: /etc/inet/ntp.conf

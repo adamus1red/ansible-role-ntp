@@ -38,6 +38,6 @@
 - name: Generate ntp.conf file
   template:
     src: ntp.conf.j2
-    dest: /etc/ntp.conf
+    dest: "{{ ntp_conf_file }}"
   notify: restart ntp
   when: ntp_manage_config | bool
