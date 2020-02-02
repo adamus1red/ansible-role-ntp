@@ -4,4 +4,3 @@ ntp_ntp_package: pkg://omnios/service/network/ntpsec
 ntp_tzdata_package: pkg:/system/data/zoneinfo
 ntp_driftfile: /var/lib/ntp/drift
 ntp_conf_file: /etc/inet/ntp.conf
-ntp_ntp_package: pkg://omnios/service/network/ntpsec

@@ -28,7 +28,6 @@
     state: started
     enabled: true
   when: ntp_enabled | bool and ansible_system != "SunOS"
-  
 
 - name: Ensure NTP is stopped and disabled as configured.
   service:

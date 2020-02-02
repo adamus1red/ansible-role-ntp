@@ -2,7 +2,7 @@
 dependencies: []
 
 galaxy_info:
-  author: geerlingguy
+  author: adamus1red
   description: NTP installation and configuration for Linux.
   company: "Midwestern Mac, LLC"
   license: "license (BSD, MIT)"
@@ -27,6 +27,9 @@ galaxy_info:
       versions:
         - all
     - name: Archlinux
+      versions:
+        - all
+    - name: Solaris
       versions:
         - all
   galaxy_tags:
