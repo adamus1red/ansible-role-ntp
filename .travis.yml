@@ -1,6 +1,7 @@
 ---
 language: python
 services: docker
+cache: pip
 
 env:
   global:

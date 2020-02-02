@@ -1,6 +1,12 @@
 ---
 - name: Include OS-specific variables.
   include_vars: "{{ ansible_os_family }}.yml"
+  when: when: ansible_os_family != "RedHat" and ansible_lsb.major_release|int <=7
+  ignore_errors: true
+
+- name: Include OS-specific variables.
+  include_vars: "{{ ansible_os_family }}-{{ ansible_lsb.major_release|int }}.yml"
+  when: when: ansible_os_family == "RedHat" and ansible_lsb.major_release|int > 7
   ignore_errors: true
 
 - name: Ensure NTP-related packages are installed.
