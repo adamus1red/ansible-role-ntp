@@ -3,4 +3,4 @@ ntp_daemon: chronyd
 ntp_ntp_package: chrony
 ntp_tzdata_package: tzdata
 ntp_driftfile: /var/lib/ntp/drift
-ntp_manage_config: False
+ntp_manage_config: false
