@@ -10,7 +10,7 @@
   ignore_errors: true
 
 - name: Ensure NTP-related packages are installed.
-  package:
+  package: 
     name: "{{ ntp_ntp_package }}"
     state: present
 
