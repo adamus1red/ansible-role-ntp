@@ -1,12 +1,12 @@
 ---
 - name: Include OS-specific variables.
   include_vars: "{{ ansible_os_family }}.yml"
-  when: ansible_os_family != "RedHat" and ansible_distribution_version.split('.')[0]|int <=7
+  when: ansible_os_family is not "RedHat" and ansible_distribution_version.split('.')[0]|int <=7
   ignore_errors: true
 
 - name: Include OS-specific variables.
   include_vars: "{{ ansible_os_family }}-{{ ansible_distribution_version.split('.')[0]|int }}.yml"
-  when: ansible_os_family == "RedHat" and ansible_distribution_version.split('.')[0]|int > 7
+  when: ansible_os_family is "RedHat" and ansible_distribution_version.split('.')[0]|int > 7
   ignore_errors: true
 
 - name: Ensure NTP-related packages are installed.
