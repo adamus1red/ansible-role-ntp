@@ -8,11 +8,13 @@
   ignore_errors: true
 
 - name: Ensure NTP-related packages are installed.
+  become: true
   package:
     name: "{{ ntp_ntp_package }}"
     state: present
 
 - name: Ensure tzdata package is installed (Linux).
+  become: true
   package:
     name: "{{ ntp_tzdata_package }}"
     state: present
@@ -22,11 +24,13 @@
   when: ansible_os_family == 'RedHat' and ansible_distribution_version.split('.')[0] == '6'
 
 - name: Set timezone
+  become: true
   timezone:
     name: "{{ ntp_timezone }}"
   when: ansible_system != "SunOS"
 
 - name: Ensure NTP is running and enabled as configured.
+  become: true
   service:
     name: "{{ ntp_daemon }}"
     state: started
@@ -34,6 +38,7 @@
   when: ntp_enabled | bool and ansible_system != "SunOS"
 
 - name: Ensure NTP is stopped and disabled as configured.
+  become: true
   service:
     name: "{{ ntp_daemon }}"
     state: stopped
@@ -41,6 +46,7 @@
   when: not (ntp_enabled | bool) and ansible_system != "SunOS"
 
 - name: Generate ntp.conf file
+  become: true
   template:
     src: ntp.conf.j2
     dest: "{{ ntp_conf_file }}"
