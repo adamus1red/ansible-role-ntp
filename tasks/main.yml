@@ -1,11 +1,10 @@
 ---
 - name: Include OS-specific variables.
-  include_vars: "{{ ansible_os_family }}.yml"
-  ignore_errors: true
-
-- name: Include OS-specific & version-specific variables.
-  include_vars: "{{ ansible_os_family }}-{{ ansible_distribution_version.split('.')[0]|int }}.yml"
-  ignore_errors: true
+  include_vars: "{{ item }}"
+  with_first_found:
+    - "{{ ansible_distribution | lower }}-{{ ansible_distribution_version | lower }}.yml"
+    - "{{ ansible_distribution | lower }}.yml"
+    - "{{ ansible_os_family | lower }}.yml"
 
 - name: Ensure NTP-related packages are installed.
   become: true
